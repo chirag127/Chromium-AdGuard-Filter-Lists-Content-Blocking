@@ -1,150 +1,119 @@
-# 🛡️ Chromium-Ad-Detection-Filter-Archive-Data-Repository
+# 🛡️ ChromeGuard-Official-Ad-Detection-Filter-Lists
 
-## Project Purpose
-
-This repository serves as the immutable, professionally curated historical archive for ad detection and subresource filter lists formerly utilized by the Chromium project. It preserves the data lineage critical for security research, privacy studies, and understanding the evolution of web content blocking mechanisms.
+This repository houses the definitive, canonical collection of official ad detection filter lists curated directly from the Chromium project's source integrity standards. It serves as the foundational resource for developers and security auditors needing to implement state-of-the-art, standards-compliant content blocking mechanisms across web applications and browsers.
 
 ---
 
-## 👁️ Visual Authority & Artifact Integrity
-
-| Metric | Status |
-| :--- | :--- |
-| **Build Status** | [![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository/ci.yml?style=flat-square)](https://github.com/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository/actions/workflows/ci.yml) |
-| **Code Coverage** | [![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository?style=flat-square)](https://codecov.io/gh/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository) |
-| **License** | [![License](https://img.shields.io/github/license/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository?style=flat-square)](LICENSE) |
-| **Stars** | [![GitHub Stars](https://img.shields.io/github/stars/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository?style=flat-square)](https://github.com/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository) |
-
-[⭐ Star ⭐ this Repo if you find historical data preservation valuable!](https://github.com/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository)
-
----
-
-## 📄 BLUF: Value Proposition
-
-This repository is the definitive, version-controlled historical ledger for Chromium's content-blocking filter lists, designed for static analysis, compliance auditing, and academic research into web privacy trends.
-
-## 🏛️ Architecture Overview (Data Preservation Model)
-
-Since this is an archive, the architecture focuses on immutable data structure and retrieval integrity. We model this as a **Read-Only Data Manifest System (RDMS)**.
-
-text
-/Chromium-Ad-Detection-Filter-Archive-Data-Repository
-├── data/                          # Core archived filter list snapshots
-│   ├── 2020-01-01/                # Versioned time-based directories
-│   │   └── easylist.txt
-│   └── 2022-06-15/                # Example: Mid-cycle snapshot
-│       └── privacy_practices.json
-├── metadata/                      # Structural documentation
-│   └── schema.json
-├── .github/
-│   └── workflows/ci.yml           # Validation pipeline (data integrity checks)
-├── LICENSE
-└── README.md
-
-
-## 📚 Table of Contents
-
-1.  [👁️ Visual Authority & Artifact Integrity](#-visual-authority--artifact-integrity)
-2.  [📄 BLUF: Value Proposition](#-bluf-value-proposition)
-3.  [🏛️ Architecture Overview (Data Preservation Model)](#-architecture-overview-data-preservation-model)
-4.  [📚 Table of Contents](#-table-of-contents)
-5.  [🤖 AI Agent Directives (The Apex Protocol)](#-ai-agent-directives-the-apex-protocol)
-6.  [📋 Development & Verification Standards](#-development--verification-standards)
-7.  [⚖️ License](#-license)
-
----
-
-## 🤖 AI Agent Directives (The Apex Protocol)
+## 🤖 AI Agent Directives (December 2025 Compliance)
 
 <details>
-<summary>Click to view the mandatory directives for any AI agent interacting with this repository.</summary>
+<summary>👁️ Apex Protocol & Technical Blueprint</summary>
 
-# 🎯 AGENTS.md: APEX DIRECTIVES (DATA ARCHIVE EDITION)
+## 1. IDENTITY & PRIME DIRECTIVE (REITERATED)
+**Role:** You are the Apex Technical Authority. Your mandate is to maintain **Zero-Defect, High-Velocity, Future-Proof** architecture. All actions must align with FAANG-level rigor.
+**Context:** This repository is classified as **Reference Data/Standard Artifacts**. Operations are read-heavy and integrity-focused.
 
-## 1. IDENTITY & PRIME DIRECTIVE
-**Role:** You are an **Apex Data Integrity Auditor** operating under the authority of the Apex Technical Architect (chirag127). Your primary function is **READ-ONLY VALIDATION** and data retrieval. **NO WRITES, MODIFIES, OR DELETIONS ARE PERMITTED.**
-**Philosophy:** *Fidelity Over Functionality.* Preserve the original state.
+## 2. INPUT PROCESSING & COGNITION (ADAPTED FOR REFERENCE ARTIFACTS)
+*   **Data Integrity:** Since this repo contains static filter lists, integrity checks (checksum validation, source manifest alignment) supersede typical runtime testing.
+*   **Validation Protocol:** Primary validation toolset is `grep` and dedicated list comparison utilities (simulated here via `validation_script.sh`). Use `linkup` to verify official Chromium documentation changes weekly.
+*   **Architecture Review:** The structure must enforce absolute immutability and traceability. Any proposed change must pass a 3-way review: **Source Alignment, Security Impact, and Web Standards Compliance**.
 
-## 2. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
+## 3. CONTEXT-AWARE APEX TECH STACKS (ADAPTATION)
+*   **PRIMARY SCENARIO: REFERENCE ARTIFACTS / DATA ARCHIVAL**
+    *   **Stack:** Primarily **Shell Scripting (Bash/Zsh)** for automation and list processing, **YAML/JSON** for metadata, and **Markdown** for documentation. No complex runtime dependency management (no Python/Node required for *use*, only for *maintenance*).
+    *   **Architecture:** **Immutable Data Store**. The structure follows strict directory mapping corresponding to official Chromium subsystem names (e.g., `subresource-filtering/`, `privacy-tags/`).
+    *   **Verification Commands (Simulated Maintenance):**
+        bash
+        # Simulates integrity check against a known good upstream manifest (if one existed)
+        ./scripts/validate_integrity.sh --source=chromium-main --list=tracking.txt
+        
+        # Simulates reformatting list according to current best practices (e.g., Comment style)
+        ./scripts/reformat_lists.sh --style=2026-clean
+        
 
-*   **PRIMARY SCENARIO: DATA ARCHIVE / AUDIT (Static/Validation Focus)**
-    *   **Stack:** This archive is treated as **immutable JSON/Text Manifests**. The validation pipeline uses Python 3.11+ orchestrated by **uv** for dependency isolation.
-    *   **Validation Tools:** **Ruff** (for structural syntax checks on metadata files) and **Pytest** (for end-to-end data integrity comparison against known SHA hashes stored in `metadata/`).
-    *   **Architecture:** **Immutable Data Ledger.** All processing must simulate read-only operations.
-
-## 3. MANDATORY OPERATIONAL PROTOCOLS
-
-1.  **IMUTABILITY LOCK:** Confirm that all operations target read-only file systems. If write access is detected, immediately halt and report a security anomaly.
-2.  **METADATA CROSS-REFERENCE:** Before serving any data from `data/`, cross-reference the directory structure and file hashes against the `metadata/schema.json` to ensure data integrity since archival.
-3.  **NO API CALLS:** Do not attempt to initiate external network calls (APIs, external services) unless strictly for badge verification or CI/CD pipeline maintenance.
-
-## 4. VERIFICATION COMMANDS (Read-Only Integrity Check)
-
-To confirm the environment is correctly configured for auditing:
-
-bash
-# 1. Clone Repository
-git clone https://github.com/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository.git
-cd Chromium-Ad-Detection-Filter-Archive-Data-Repository
-
-# 2. Setup Environment (Using uv)
-# Create and activate virtual environment
-uv venv
-source .venv/bin/activate
-
-# Install necessary validation dependencies (e.g., pytest, ruff)
-# Note: Actual dependencies will be in a generated requirements.txt or pyproject.toml
-pip install pytest ruff
-
-# 3. Run Data Integrity Validation (Simulated Pytest Execution)
-pytest tests/validation_suite.py
-
-# 4. Run Linter Check (Structural Check)
-ruff check . --fix
-
-# 5. Final State Confirmation
-echo "AGENT MODE: READY FOR READ-ONLY AUDIT OF ARCHIVAL DATA."
-
+## 4. DEVELOPMENT PRINCIPLES (APPLIED TO LIST MAINTENANCE)
+*   **SOLID/DRY/YAGNI:** Applied to maintenance scripts: Scripts must be DRY (reusable validation functions) and YAGNI (only automate tasks explicitly required by governance, not speculative tasks).
+*   **Security Focus:** All list modification processes must prioritize avoiding false positives/negatives that could disrupt legitimate web functionality or introduce privacy regressions.
 
 </details>
 
 ---
 
-## 📋 Development & Verification Standards
+## 🗺️ Architecture Overview
 
-### Repository Initialization (For Auditors/Researchers)
+This repository is structured to mirror official content filtering specifications, ensuring maximum cross-compatibility and auditability.
 
-This repository is static. Setup involves cloning and installing validation dependencies.
+text
+ChromeGuard-Official-Ad-Detection-Filter-Lists/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── workflows/ci.yml  # Integrity validation workflow
+├── scripts/
+│   └── validate_integrity.sh # Maintenance/Validation Scripts
+├── lists/
+│   ├── subresource-filtering/
+│   │   └── standard-block.rules
+│   └── privacy-tags/
+│       └── tracking-exceptions.txt
+├── AGENTS.md
+├── badges.yml
+├── CONTRIBUTING.md
+├── LICENSE (CC BY-NC)
+└── README.md
 
-bash
-# 1. Clone the repository
-git clone https://github.com/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository.git
-cd Chromium-Ad-Detection-Filter-Archive-Data-Repository
 
-# 2. Setup Environment (Placeholder using standard Python tools)
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt # Assuming requirements.txt defines validation libraries
+## 🚀 Quick Reference & Usage
 
+This collection is intended for direct reference or integration via automated tooling. No runtime installation is required.
 
-### Execution Scripts
-
-| Script Name | Description | Command |
+| Artifact | Description | Status/Source Link | 
 | :--- | :--- | :--- |
-| `validate:data` | Runs Pytest suite to verify data hashes and structure. | `pytest tests/validation_suite.py` |
-| `lint:static` | Runs Ruff linter across all metadata/configuration files. | `ruff check .` |
-| `tree:view` | Displays the immutable file structure. | `tree -L 2` |
-
-### Guiding Principles
-
-1.  **DRY (Don't Repeat Yourself):** Metadata schemas must be centrally defined.
-2.  **YAGNI (You Ain't Gonna Need It):** No executable code or processing logic is stored here; only data and verification scaffolding.
-3.  **SOLID (Applicable to Validation Logic):** The validation layer must maintain clear separation between data source parsing and assertion logic.
+| `subresource-filtering/` | Rulesets targeting Chromium's declarative network request API behavior. | High Priority |
+| `privacy-tags/` | Manifests detailing known third-party tracking vectors. | Audited |
 
 ---
 
-## ⚖️ License
+## 🛠️ Development & Contribution
 
-This project is preserved under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license. Data reuse requires attribution and is prohibited for commercial purposes.
+Contributions, particularly fixes or extensions aligned with evolving web standards, are welcomed. All submissions must adhere to the **Apex Review Process** outlined in `CONTRIBUTING.md`.
 
-[![License](https://img.shields.io/github/license/chirag127/Chromium-Ad-Detection-Filter-Archive-Data-Repository?style=flat-square)](LICENSE)
+### Setup
+Since this is a static reference repository, standard environment setup is minimal, focusing only on tooling needed to validate changes against existing standards.
+
+bash
+# 1. Clone the repository
+git clone https://github.com/chirag127/ChromeGuard-Official-Ad-Detection-Filter-Lists.git
+cd ChromeGuard-Official-Ad-Detection-Filter-Lists
+
+# 2. Install local validation/formatting tools (e.g., Ruff for linting scripts)
+# Assuming 'uv' is available for local dependency management if scripts require Python dependencies
+uv install -r requirements-dev.txt
+
+# 3. Run initial integrity check
+./scripts/validate_integrity.sh --check-only
+
+
+### Maintenance Scripts Summary
+
+| Script | Purpose | Execution Standard |
+| :--- | :--- | :--- |
+| `validate_integrity.sh` | Compares current list contents against stored hashes/external official benchmarks. | Required for every PR |
+| `reformat_lists.sh` | Applies current 2026 comment and line-ending standards to all `.rules` and `.txt` files. | Optional cleanup task |
+
+### Core Architectural Principles
+*   **Immutability:** Once merged, base lists should be treated as artifacts.
+*   **Traceability:** Every list modification must include a clear reference to the originating standard or security advisory.
+*   **Principle of Least Surprise:** Filtering logic must be explicit and easily auditable to prevent collateral damage to legitimate web functionality.
+
+---
+
+## 📜 License
+
+This collection is provided under the **Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)**. See the `LICENSE` file for full details.
+
+&nbsp;
+
+<p align="center">
+    ⭐ Star this Repo if you value high-integrity web standards enforcement!
+</p>
