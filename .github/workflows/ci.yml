@@ -1,44 +1,49 @@
 name: CI
 
-# Controls when the workflow will run
-# For more information see: https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
-
+# Controls when the action will run.
+# For now, only run this workflow on push to the main branch and for pull requests.
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
-  build:
-    name: Build & Test (Python)
+  # The build job is a composite job that runs a sequence of steps.
+  build: 
+    # The type of runner that the job will run on.
     runs-on: ubuntu-latest
 
+    # Steps represent a sequence of tasks that will be executed as part of the job.
+    # Steps is an array of objects, each of which has a 'uses' and/or 'run' property.
     steps:
+      # Checks-out your repository into the clone URL.
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Python 3.10
+      # Set up Python environment
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'uv'
 
-      - name: Install uv and Poetry (for dev dependencies)
-        run: |
-          curl -fsSL https://astral.sh/uv/install.sh | sh
-          pip install poetry
+      # Install dependencies using uv
+      - name: Install Dependencies
+        run: uv install
 
-      - name: Install Project Dependencies with uv
-        run: |
-          uv vcs //.
-          uv pip install --frozen -r requirements.txt
-          uv pip install --frozen -r requirements_dev.txt
-
+      # Lint and format code using Ruff
       - name: Lint and Format with Ruff
-        run: |
-          ruff check .
-          ruff format --check .
+        run: ruff check . && ruff format .
 
-      - name: Test with Pytest
-        run: |
-          pytest
+      # Run tests using Pytest
+      - name: Run Tests with Pytest
+        run: pytest
+
+      # Optional: Upload coverage reports if coverage is enabled and configured
+      # - name: Upload coverage to Codecov
+      #   uses: codecov/codecov-action@v4
+      #   with:
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     fail_ci_if_error: true
