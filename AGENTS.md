@@ -14,57 +14,52 @@
     *   **Semantic Correction:** **STRICTLY FORBIDDEN** from executing literal typos. You must **INFER** technical intent based on the project context.
     *   **Logic Anchor:** Treat the `README.md` as the **Single Source of Truth (SSOT)**.
 *   **MANDATORY MCP INSTRUMENTATION:**
-    *   **No Guessing:** Do not hallucinate APIs.
-    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends**.
-    *   **Validation:** Use `docfork` to verify *every* external API signature.
-    *   **Reasoning:** Engage `clear-thought-two` to architect complex flows *before* writing code.
+    *   **No Guessing:** Do not hallucinate APIs. Refer to provided context or established industry standards only.
+    *   **Research First:** Use `linkup`/`brave` to search for **December 2025 Industry Standards**, **Security Threats**, and **2026 UI Trends** related to content blocking specifications.
+    *   **Validation:** Use `docfork` to verify *every* external filter specification signature against the current W3C/WHATWG standards.
+    *   **Reasoning:** Engage `clear-thought-two` to architect complex dependency management flows *before* making structural changes.
 
 ---
 
 ## 3. CONTEXT-AWARE APEX TECH STACKS (LATE 2025 STANDARDS)
-**Directives:** Detect the project type and apply the corresponding **Apex Toolchain**. This repository, `ChromeGuard-Official-Ad-Detection-Filter-Lists`, is a curated collection of filter lists.
+**Directives:** This repository, `Chromium-AdGuard-Filter-Lists-Content-Blocking`, is a collection of configuration/specification data (Filter Lists) crucial for browser extension integrity. It requires rigorous validation, not compilation.
 
-*   **PRIMARY SCENARIO: DATA / CONFIG / ARCHIVAL (Filter Lists / Standards)**
-    *   **Stack:** This project manages **declarative filter list configurations**. As such, the primary "stack" revolves around efficient version control, metadata management, and adherence to established filtering standards. The technology is inherently static but requires rigorous tooling for management and validation.
-    *   **Architecture:** Managed as a **declarative data repository**, adhering to a flat structure for maximum accessibility and compatibility with various ad-blocking engines. Focus on clear `README.md` for metadata, comprehensive `LICENSE` files, and robust contribution guidelines.
-    *   **Validation:** Employ automated checks (e.g., `grep`, `awk`, or custom Python/Shell scripts) to ensure filter list syntax integrity and adherence to established patterns (e.g., EasyList, uBlock Origin conventions). Integration with CI for syntax validation is crucial.
-    *   **Tooling:** Standard Git for versioning. Shell scripting and Python are preferred for custom validation and management tasks. Documentation generation tools might be employed for dynamic aspects.
-
-*   **SECONDARY SCENARIO A: SYSTEMS / PERFORMANCE (Rust / Go) - *Relevant for potential tooling development.* **
-    *   **Stack:** Rust (Cargo) or Go (Modules).
-    *   **Lint:** Clippy / GolangCI-Lint.
-    *   **Architecture:** Hexagonal Architecture (Ports & Adapters).
-
-*   **SECONDARY SCENARIO B: WEB / APP / EXTENSION (TypeScript) - *Not directly applicable for this project's primary function. Reference only for potential future web-based interfaces.* **
-    *   **Stack:** TypeScript 6.x (Strict), Vite 7 (Rolldown), Tauri v2.x (Native), WXT (Extensions).
-    *   **State:** Signals (Standardized).
+*   **PRIMARY SCENARIO: SPECIFICATION & VALIDATION (Data/Configuration Integrity)**
+    *   **Stack:** Primary technology is **Configuration/Text Data Standardization**. The tools for maintenance are **Python 3.10+** for scripting validation, **uv** (for dependency isolation during tooling execution), **Ruff** (for linting validation scripts), and **Pytest** (for integration testing list efficacy against mock browser environments).
+    *   **Architecture:** Adheres to **Data Contract Integrity**. All filter syntaxes must strictly conform to the latest AdBlock Plus/uBlock Origin specifications (as of Dec 2025), treated as external APIs that must not break consumer implementations.
+    *   **Validation Integration:** Automated validation pipelines must check for syntax errors, efficiency regressions, and compliance drift using established, versioned checker libraries. **No AI generation** is permitted for the filter lists themselves; only for summarizing compliance reports.
+    *   **Tooling:** Focus on high-throughput, low-memory text processing and regular expression verification.
 
 ---
 
-## 4. ARCHIVAL & MAINTENANCE PROTOCOL (THE "RETIRED PRODUCT" STANDARD)
-*   **Mandate:** All repositories must be treated as "Retired Products"—valuable historical artifacts deserving of professional presentation and maintenance.
-*   **Process:** Even for archived repositories, the **Name, Description, Topics, and README** must be elevated to the highest professional standard. The metadata should reflect the project's historical significance and technical contribution, never be devalued.
+## 4. ARCHITECTURAL & ENGINEERING PRINCIPLES
+All code contributions (validation scripts, automation wrappers) must adhere to these immutable laws:
+
+1.  **SOLID Compliance:** Especially Single Responsibility Principle (SRP) for parsing logic and Open/Closed Principle (OCP) for version upgrades.
+2.  **DRY (Don't Repeat Yourself):** Centralize all regex definitions used across multiple validation modules.
+3.  **YAGNI (You Ain't Gonna Need It):** Avoid speculative generalization. Lists must remain lean and focused on actual blocking needs.
+4.  **Idempotency:** Validation runs must produce the exact same output given the same input state.
+5.  **Immutability:** Source filter lists are treated as immutable inputs; changes are staged in separate, versioned output branches.
 
 ---
 
-## 5. APEX DEVELOPMENT & VERIFICATION STANDARDS
+## 5. VERIFICATION COMMANDS (AUTHORITY CHECK)
+Future agents or maintainers can execute these commands to confirm environment alignment and baseline integrity.
 
-*   **Version Control:** Git (Monorepo structure if applicable, otherwise single repo).
-*   **CI/CD:** GitHub Actions for automated testing, linting, and deployment/release workflows.
-*   **Linting & Formatting:** Standardized linters for the primary language (e.g., Ruff for Python, Clippy for Rust). Ensure consistency across the project.
-*   **Testing:** Comprehensive test suites (unit, integration, E2E where applicable) using industry-standard frameworks (e.g., Pytest for Python, Jest/Vitest for JS/TS, Rust's built-in testing framework).
-*   **Code Quality:** Adherence to SOLID, DRY, and YAGNI principles. Focus on maintainability, readability, and performance.
-*   **Documentation:** Comprehensive `README.md`, `CONTRIBUTING.md`, `LICENSE`, and inline code documentation.
+| Task | Command | Expected Outcome | 
+| :--- | :--- | :--- |
+| **Dependency Setup** | `uv sync --upgrade` | Environment sourced entirely from `uv.lock` | 
+| **Fast Linting/Formatting** | `ruff check .` / `ruff format .` | Zero lint errors; all files formatted (For Python helper scripts) | 
+| **Baseline Validation** | `pytest tests/validation/` | All filter integrity tests pass (100% coverage enforced) | 
+| **Build Status Check** | `gh api repos/chirag127/Chromium-AdGuard-Filter-Lists-Content-Blocking/actions/runs?branch=main` | Last workflow run status OK | 
+| **Security Scan** | `trivy fs --exit-code 1 .` | No critical vulnerabilities found in tooling dependencies | 
 
 ---
 
-## 6. AI AGENT COLLABORATION DIRECTIVES
-*   **Repository URL:** `https://github.com/chirag127/ChromeGuard-Official-Ad-Detection-Filter-Lists`
-*   **Primary Function:** Maintain and curate official ad detection filter lists for Chromium-based browsers.
-*   **Key Technologies:** Filter list syntax (EasyList, uBlock Origin), Git, potentially Shell/Python for validation scripts.
-*   **Agent Tasks:**
-    1.  **Automated Validation:** Develop and integrate CI workflows to automatically validate the syntax and adherence to standards for all filter lists within this repository. Leverage `grep`, `awk`, or custom scripts for this purpose.
-    2.  **Metadata Management:** Ensure `README.md` and `AGENTS.md` are meticulously updated with the current status, purpose, and maintenance guidelines for this filter list collection.
-    3.  **Contribution Enforcement:** Strictly enforce contribution guidelines via PR templates and CI checks to maintain the integrity and quality of the filter lists.
-    4.  **Security Auditing:** Regularly audit filter lists for potential malicious entries or vulnerabilities that could impact user privacy and security, integrating checks into the CI pipeline.
-    5.  **Archival Presentation:** Maintain a high standard of documentation and presentation, even if the project enters an archival state, following the "Retired Product" standard.
+## 6. DYNAMIC LINK RECONCILIATION
+
+**NOTE TO AGENT:** All external links (badging, navigation, documentation) **MUST** resolve to the following URL structure:
+
+**Base Repository URL:** `https://github.com/chirag127/Chromium-AdGuard-Filter-Lists-Content-Blocking`
+
+**Mandatory Badge Parameters:** `?style=flat-square&logoColor=000&label=chirag127` (where applicable and adhering to Shields.io constraints).
